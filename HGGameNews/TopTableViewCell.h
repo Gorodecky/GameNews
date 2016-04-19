@@ -2,7 +2,7 @@
 //  TopTableViewCell.h
 //  HGGameNews
 //
-//  Created by Serg on 13.04.16.
+//  Created by Serg on 18.04.16.
 //  Copyright (c) 2016 Vitaliy Horodecky. All rights reserved.
 //
 
@@ -10,4 +10,9 @@
 
 @interface TopTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UICollectionView* collectionView;
+@property (strong, nonatomic) NSArray* listTopNews;
+
 @end
+
+static NSString* const topTableViewCellIdentifier =@"topTableViewCellIdentifier";

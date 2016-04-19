@@ -15,55 +15,63 @@
     self = [super init];
     if (self) {
         
-        self.newsName            = responseObject[@"name"];
-        self.newsLink            = responseObject [@"link"];
-        /*
-        NSString* stringDate = responseObject[@"createdAt"];
+        self.newsName = responseObject[@"name"];
         
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        // this is imporant - we set our input date format to match our input string
-        // if format doesn't match you'll get nil from your string, so be careful
-        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-        
-        
-        self.newsDateOfCreating  = [dateFormatter dateFromString:stringDate];
-        
-        NSDate *date = [dateFormatter dateFromString:stringDate];
-        NSLog(@"date = %@",date);
-        
-        
-        
-        */
+        self.newsLink = [NSURL URLWithString:responseObject [@"link"]];
         
         NSString *dateString = responseObject[@"createdAt"];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        // this is imporant - we set our input date format to match our input string
-        // if format doesn't match you'll get nil from your string, so be careful
         
-        [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
-        [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         
         [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-        // voila!
+        
         self.newsDateOfCreating = [dateFormatter dateFromString:dateString];
         
+        NSString* photoUrl = responseObject[@"cover"];
         
+        if (photoUrl != (id)[NSNull null]) {
+            
+            self.newsPhotoUrl = [NSURL URLWithString:photoUrl];
+        }
         
-        self.newsPhotoUrl        = responseObject[@"cover"];
-                
-        self.newsTopMark         = [[responseObject objectForKey:@"top" ] boolValue];
-       
-        
-        /*
-        NSString* urlString = [responseObject objectForKey:@"photo_50"];
-        
-        if (urlString) {
-            self.imageUrl = [NSURL URLWithString:urlString];
-        */
-        
+        self.newsTopMark = [[responseObject objectForKey:@"top" ] boolValue];
         
     }
     return self;
+}
+
+- (NSString*)newsTimeDifferense {
+    
+    float difference = fabs(self.newsDateOfCreating.timeIntervalSinceNow);
+    
+    if (difference < 60) {
+        
+        return @"less 1 min";
+        
+    } else if (difference < 3600) {
+        
+        return @"less 1 hour";
+        
+    } else if (difference < 3600 * 24) {
+        
+        return @"less 1 day";
+        
+    } else {
+        
+        return @"more than 1 day";
+    }
+}
+
+- (NSString*)showUrlString {
+    
+    NSString *showString = _newsLink.absoluteString;
+    
+    if (_newsLink.absoluteString.length > 30){
+        
+        showString = [showString substringWithRange:NSMakeRange(0, 30)];
+        showString = [showString stringByAppendingString:@"..."];
+    }
+    return showString;
 }
 
 @end

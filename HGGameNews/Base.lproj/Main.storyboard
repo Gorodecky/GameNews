@@ -2,8 +2,90 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Q7U-OI-0MA">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--STORIES-->
+        <scene sceneID="fKb-FQ-QcM">
+            <objects>
+                <navigationController id="hVx-jK-ZFm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="STORIES" image="Literature-50.png" id="USf-jn-Q2q"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SS6-fv-Zhg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rA4-C8-fev" kind="relationship" relationship="rootViewController" id="NU9-O9-UIb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TfJ-m8-nuK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="285" y="-520"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="2Ov-jj-Mug">
+            <objects>
+                <viewController id="rA4-C8-fev" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dkf-Ch-4hf"/>
+                        <viewControllerLayoutGuide type="bottom" id="bJ5-XX-yV8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zsl-5j-ItP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Kwm-BK-YQA">
+                                <rect key="frame" x="0.0" y="64" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="FRB-3Y-eU8"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="rA4-C8-fev" id="Wkd-n2-cRn"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ouS-Rd-FKR">
+                                <rect key="frame" x="0.0" y="108" width="414" height="628"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="rA4-C8-fev" id="1X1-7t-E6P"/>
+                                    <outlet property="delegate" destination="rA4-C8-fev" id="e2V-Ni-TR4"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Kwm-BK-YQA" firstAttribute="leading" secondItem="zsl-5j-ItP" secondAttribute="leadingMargin" constant="-16" id="1sp-cn-PLd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Kwm-BK-YQA" secondAttribute="trailing" constant="-16" id="CRn-Gn-leg"/>
+                            <constraint firstItem="ouS-Rd-FKR" firstAttribute="bottom" secondItem="zsl-5j-ItP" secondAttribute="bottomMargin" id="TZp-n7-IB3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ouS-Rd-FKR" secondAttribute="trailing" constant="-16" id="Vft-PA-yxp"/>
+                            <constraint firstItem="ouS-Rd-FKR" firstAttribute="leading" secondItem="zsl-5j-ItP" secondAttribute="leadingMargin" constant="-16" id="hhD-NA-kVn"/>
+                            <constraint firstItem="Kwm-BK-YQA" firstAttribute="top" secondItem="Dkf-Ch-4hf" secondAttribute="bottom" id="k7S-o7-ctb"/>
+                            <constraint firstItem="ouS-Rd-FKR" firstAttribute="top" secondItem="Kwm-BK-YQA" secondAttribute="bottom" id="yH6-EZ-pgj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2aq-Ce-bQd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="YQd-KH-gz0">
+                            <connections>
+                                <action selector="onSearch:" destination="rA4-C8-fev" id="L7e-gz-bpR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="searchBar" destination="Kwm-BK-YQA" id="f7a-V1-J1P"/>
+                        <outlet property="searchBarHeight" destination="FRB-3Y-eU8" id="eNV-Iq-De8"/>
+                        <outlet property="searchButton" destination="YQd-KH-gz0" id="xnv-5V-RX4"/>
+                        <outlet property="tableView" destination="ouS-Rd-FKR" id="5qA-IH-dYH"/>
+                        <outlet property="view" destination="ouS-Rd-FKR" id="g2d-bU-XUz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f8m-qb-dg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="843" y="-520"/>
+        </scene>
         <!--VIDEOS-->
         <scene sceneID="MGx-DH-gaj">
             <objects>
@@ -15,7 +97,7 @@
                     <view key="view" contentMode="scaleToFill" id="PWs-rU-AHm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="VIDEOS" image="Video Paylist-50.png" id="Nfj-MO-YnN">
@@ -37,7 +119,7 @@
                     <view key="view" contentMode="scaleToFill" id="ml6-qK-vhi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.14488081360157412" blue="0.27365287426410112" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="FAVOURITES" image="Star-50.png" id="uNn-6o-dMu">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
@@ -47,31 +129,12 @@
             </objects>
             <point key="canvasLocation" x="576" y="1129"/>
         </scene>
-        <!--STORIES-->
-        <scene sceneID="hIh-G8-i55">
-            <objects>
-                <viewController id="oky-fW-3hR" customClass="ViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="BGa-97-9hk"/>
-                        <viewControllerLayoutGuide type="bottom" id="9bd-8p-ZHy"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hhQ-fV-9Tv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="STORIES" image="Literature-50.png" id="zK2-wI-ZbA"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tnh-z2-aOP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="576" y="-456"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="EvA-vU-Qmi">
             <objects>
                 <tabBarController id="Q7U-OI-0MA" sceneMemberID="viewController">
                     <keyCommands/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Eh0-F6-gzi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -79,7 +142,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="oky-fW-3hR" kind="relationship" relationship="viewControllers" id="rFw-ye-RzX"/>
+                        <segue destination="hVx-jK-ZFm" kind="relationship" relationship="viewControllers" id="p8w-gv-mTb"/>
                         <segue destination="hxy-sY-QsO" kind="relationship" relationship="viewControllers" id="vA7-3g-oKn"/>
                         <segue destination="IQZ-Jm-IB3" kind="relationship" relationship="viewControllers" id="E31-Pv-8Wr"/>
                     </connections>

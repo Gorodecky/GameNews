@@ -24,8 +24,8 @@
     return manager;
 }
 
-- (void) getNews:(void(^)(NSArray* rezultValue)) blockName
-{
+- (void) getNews:(void(^)(NSArray* rezultValue)) blockName {
+    
     AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
     
         [manager GET:@"http://gamenewsapp.ru:3000/api/news"
@@ -35,8 +35,11 @@
             NSLog(@"JSON: %@", responseObject);
                  
                  if (responseObject) {
+                     
                      blockName(responseObject);
+                     
                  } else {
+                     
                      blockName (nil);
                  }
                  
@@ -47,7 +50,6 @@
             blockName (nil);
           
         }];
-
 }
 
 @end

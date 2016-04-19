@@ -13,12 +13,9 @@
 @property (strong, nonatomic) NSArray* arrayListNews;
 @property (strong, nonatomic) NSArray* arrayTopNews;
 @property (strong, nonatomic) NSArray* arrayWithOutTopNews;
-
-
-
-//масыв топив
-//масыв простых новын
+@property (nonatomic) BOOL availableTopNews;
 
 - (void) newsParse:(NSArray*) arrayNews;
+- (NSArray*) searchNews:(NSString*)searchInformation;
 
 @end

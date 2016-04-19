@@ -16,7 +16,7 @@
 @property (strong, nonatomic) NSURL* newsPhotoUrl;
 @property (nonatomic) BOOL newsTopMark;
 
-
 - (News*)initWithServerResponse:(NSDictionary*) responseObject;
-
+- (NSString*)newsTimeDifferense;
+- (NSString*)showUrlString;
 @end

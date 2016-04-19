@@ -11,9 +11,6 @@
 
 @implementation ListNews
 
-
-
-
 - (void) newsParse:(NSArray*) arrayNews {
     
     NSMutableArray * array = [NSMutableArray array];
@@ -22,27 +19,47 @@
         
         [array addObject:[[News alloc] initWithServerResponse:dictionary]];
     }
+    
     _arrayListNews = array;
     
     NSMutableArray* arrayTopNews = [NSMutableArray array];
     
     NSMutableArray* arrayWithOutTopNews = [NSMutableArray array];
-   
+    
     for (News* news in _arrayListNews) {
         
         if (news.newsTopMark == YES) {
             
             [arrayTopNews addObject:news];
+            
         } else {
+            
             [arrayWithOutTopNews addObject:news];
         }
     }
     _arrayTopNews = arrayTopNews;
+    
     _arrayWithOutTopNews = arrayWithOutTopNews;
     
-    
-        //_arrayListNews // ро збыты на 2 новых масыва
+    if (_arrayTopNews > 0) {
+        
+        _availableTopNews = YES;
+    }
 }
 
+- (NSArray*) searchNews:(NSString*)searchInformation {
+    
+    if (!searchInformation) {
+        
+        return _arrayListNews;
+        
+    } else {
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(newsName contains[c] %@)",searchInformation];
+        NSArray *filteredArray = [_arrayListNews filteredArrayUsingPredicate:predicate];
+        return filteredArray;
+    }
+    return nil;
+}
 
 @end
