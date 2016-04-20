@@ -36,6 +36,7 @@
     [super viewDidLoad];
     
     searchMode = NO;
+    
     [self showSearchBar];
     
     [self.searchBar setReturnKeyType:UIReturnKeyDone];
@@ -43,17 +44,15 @@
     //topCell Xib
     UINib *topNib = [UINib nibWithNibName:@"TopTableViewCell" bundle:nil];
     
-    
-    
     [[self tableView] registerNib:topNib forCellReuseIdentifier:topTableViewCellIdentifier];
     
     //standartCell Xib
     
     UINib * standartNib = [UINib nibWithNibName:@"TableViewCell" bundle:nil];
     
-    NSString* standartNewsTableViewCellIdentifier = @"standartCell";
+    //NSString* standartNewsTableViewCellIdentifier = @"standartCell";
     
-    [[self tableView] registerNib:standartNib forCellReuseIdentifier:standartNewsTableViewCellIdentifier];
+    [[self tableView] registerNib:standartNib forCellReuseIdentifier:standartTableViewCellIdentifier];
     
     //.........................
     
