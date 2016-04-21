@@ -26,7 +26,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *searchButton;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchBarHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchBarheight;
 
 @end
 
@@ -92,7 +92,7 @@
         
     } else {
         
-        _searchButton = [[UIBarButtonItem alloc] initWithTitle:@"Cansel"
+        _searchButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
                                                          style:UIBarButtonItemStylePlain
                                                         target:self
                                                         action:@selector(onSearch:)];
@@ -196,11 +196,11 @@
 - (void)showSearchBar {
     if (searchMode == YES) {
         
-        _searchBarHeight.constant = 44;
+        _searchBarheight.constant = 44;
         
     } else {
         
-        _searchBarHeight.constant = 0;
+        _searchBarheight.constant = 0;
     }
     
     [self.view layoutIfNeeded];
