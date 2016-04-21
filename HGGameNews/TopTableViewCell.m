@@ -29,7 +29,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    TopCollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:topTableViewCellIdentifier forIndexPath:indexPath];
+    TopCollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:topCollectionViewCellidentifier forIndexPath:indexPath];
     
     News * showNews = _listTopNews[indexPath.row];
     

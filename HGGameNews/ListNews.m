@@ -15,9 +15,21 @@
     
     NSMutableArray * array = [NSMutableArray array];
     
+    int i = 0;
+    
     for (NSDictionary* dictionary in arrayNews) {
         
-        [array addObject:[[News alloc] initWithServerResponse:dictionary]];
+        i++;
+        
+        News* news = [[News alloc] initWithServerResponse:dictionary];
+        
+        if (i == 1 || i == 7 ||  i == 9)
+        {
+            news.newsTopMark = YES;
+        }
+        
+        
+        [array addObject:news];
     }
     
     _arrayListNews = array;

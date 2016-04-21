@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,7 +12,7 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="419" height="294"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Lt-ax-2iq">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Lt-ax-2iq">
                         <rect key="frame" x="0.0" y="0.0" width="419" height="294"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jja-46-r06">
@@ -22,22 +21,27 @@
                             <constraint firstAttribute="height" constant="59" id="BLH-h4-Gh1"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAh-mT-gJd">
-                        <rect key="frame" x="296" y="265" width="115" height="21"/>
+                        <rect key="frame" x="293" y="263" width="115" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="CGf-Hm-wn6"/>
                             <constraint firstAttribute="width" constant="115" id="CaL-BY-JrQ"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="qsu-Id-Dhq"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="text" translatesAutoresizingMaskIntoConstraints="NO" id="2VH-Yz-2TQ">
                         <rect key="frame" x="8" y="258" width="240" height="28"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="240" id="LS9-08-WwZ"/>
+                            <constraint firstAttribute="height" constant="28" id="eKX-HF-Un4"/>
+                        </constraints>
                         <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -46,19 +50,17 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstItem="2VH-Yz-2TQ" firstAttribute="top" secondItem="jja-46-r06" secondAttribute="bottom" constant="8" symbolic="YES" id="3v1-i4-HrZ"/>
-                <constraint firstAttribute="trailing" secondItem="4Lt-ax-2iq" secondAttribute="trailing" id="4vO-P5-ZcW"/>
-                <constraint firstItem="4Lt-ax-2iq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8mU-pL-zMS"/>
-                <constraint firstItem="2VH-Yz-2TQ" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottomMargin" id="8ux-YV-NYW"/>
-                <constraint firstItem="4Lt-ax-2iq" firstAttribute="leading" secondItem="jja-46-r06" secondAttribute="leading" id="9fX-92-rg1"/>
-                <constraint firstItem="2VH-Yz-2TQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" id="JMz-zM-ocj"/>
-                <constraint firstItem="zAh-mT-gJd" firstAttribute="trailing" secondItem="gTV-IL-0wX" secondAttribute="trailingMargin" id="Jtl-0h-fhx"/>
-                <constraint firstItem="jja-46-r06" firstAttribute="trailing" secondItem="4Lt-ax-2iq" secondAttribute="trailing" id="NtO-A7-j6s"/>
-                <constraint firstItem="zAh-mT-gJd" firstAttribute="leading" secondItem="2VH-Yz-2TQ" secondAttribute="trailing" constant="48" id="SKG-zZ-iij"/>
-                <constraint firstItem="jja-46-r06" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Vie-ch-GVe"/>
-                <constraint firstAttribute="bottom" secondItem="4Lt-ax-2iq" secondAttribute="bottom" id="fTP-O6-F64"/>
-                <constraint firstItem="zAh-mT-gJd" firstAttribute="top" secondItem="jja-46-r06" secondAttribute="bottom" constant="15" id="ibS-Kj-JlT"/>
-                <constraint firstItem="2VH-Yz-2TQ" firstAttribute="bottom" secondItem="zAh-mT-gJd" secondAttribute="bottom" id="w6R-Dr-eom"/>
+                <constraint firstItem="2VH-Yz-2TQ" firstAttribute="top" secondItem="jja-46-r06" secondAttribute="bottom" constant="8" id="1gR-iu-ccn"/>
+                <constraint firstAttribute="bottom" secondItem="4Lt-ax-2iq" secondAttribute="bottom" id="2Vd-rY-xiv"/>
+                <constraint firstItem="4Lt-ax-2iq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6tW-0w-DbZ"/>
+                <constraint firstAttribute="trailing" secondItem="zAh-mT-gJd" secondAttribute="trailing" constant="11" id="8FR-ba-U0s"/>
+                <constraint firstAttribute="trailing" secondItem="jja-46-r06" secondAttribute="trailing" id="N8x-02-vPb"/>
+                <constraint firstItem="4Lt-ax-2iq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="YXh-H7-GDj"/>
+                <constraint firstAttribute="bottom" secondItem="zAh-mT-gJd" secondAttribute="bottom" constant="10" id="bba-bm-33Y"/>
+                <constraint firstItem="2VH-Yz-2TQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="eGg-VH-dep"/>
+                <constraint firstAttribute="bottom" secondItem="2VH-Yz-2TQ" secondAttribute="bottom" constant="8" id="g6i-1J-TCU"/>
+                <constraint firstItem="jja-46-r06" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="pUB-gg-raC"/>
+                <constraint firstAttribute="trailing" secondItem="4Lt-ax-2iq" secondAttribute="trailing" id="py6-dU-AdB"/>
             </constraints>
             <size key="customSize" width="512" height="318"/>
             <connections>
